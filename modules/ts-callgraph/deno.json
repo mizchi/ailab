@@ -1,0 +1,14 @@
+{
+  "name": "@mizchi/ts-callgraph",
+  "version": "1.0.0",
+  "description": "A tool to generate call graphs for TypeScript projects.",
+  "tasks": {
+    "test": "deno test -A ."
+  },
+  "test": {
+    "exclude": ["__snapshots__/**/*"]
+  },
+  "exports": {
+    ".": "./mod.ts"
+  }
+}

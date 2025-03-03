@@ -1,0 +1,8 @@
+{
+  "name": "@mizchi/tdd-example",
+  "version": "0.1.0",
+  "exports": {
+    ".": "./mod.ts"
+  },
+  "tasks": {}
+}

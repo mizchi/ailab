@@ -176,6 +176,16 @@ TypeScriptでのAdapterパターンは、外部依存を抽象化し、テスト
    - モジュールモードの詳細な実装例
    - ユースケースの例の追加
 
+### ts-callgraph
+
+TypeScriptコードのコールグラフを生成するツールです。
+
+使用例:
+
+```bash
+deno run -A ts-callgraph/cli.ts scripts/callgraph-sample.ts --format function-summary
+```
+
 4. **完全なドキュメントとテスト（最終フェーズ）**
    - API ドキュメントの完成
    - テストカバレッジ目標の達成

@@ -1,0 +1,16 @@
+{
+  "name": "@mizchi/ddd-sample",
+  "version": "0.1.0",
+  "description": "関数型ドメインモデリングによるDDDの実装サンプル",
+  "imports": {
+    "neverthrow": "npm:neverthrow@^8.2.0",
+    "@std/testing": "jsr:@std/testing@^1.0.9",
+    "@std/expect": "jsr:@std/expect@^1.0.13"
+  },
+  "exports": {
+    ".": "./mod.ts"
+  },
+  "tasks": {
+    "test:watch": "deno test --watch --allow-none"
+  }
+}

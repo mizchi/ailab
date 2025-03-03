@@ -1,5 +1,5 @@
 ---
-name: Deno:ScriptMode
+name: Deno:Script
 groups:
   - read
   - edit
@@ -9,12 +9,12 @@ groups:
 source: "project"
 ---
 
-## 実装モード: スクリプトモード
+# ScriptMode
 
 - 外部依存を可能な限り減らして、一つのファイルに完結してすべてを記述する
 - テストコードも同じファイルに記述する
 - スクリプトモードは `@script` がコード中に含まれる場合、あるいは `scripts/*` や
-  `script/*` 以下のファイルが該当する
+  `script/*`, `poc/*` 以下のファイルが該当する
 
 スクリプトモードの例
 

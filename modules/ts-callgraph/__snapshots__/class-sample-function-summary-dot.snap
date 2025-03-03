@@ -1,0 +1,37 @@
+digraph FunctionImplementationGraph {
+  node [shape=box, style=filled];
+  "BaseClass.constructor" [label="BaseClass.constructor\n: any", fillcolor=lightpink];
+  "initialize" [label="initialize", fillcolor=lightblue];
+  "BaseClass.initialize" [label="BaseClass.initialize\n: () => void", fillcolor=lightblue];
+  "console.log" [label="console.log", fillcolor=lightblue];
+  "DerivedClass.constructor" [label="DerivedClass.constructor\n: any", fillcolor=lightpink];
+  "<complex>_32_4" [label="<complex>_32_4", fillcolor=lightblue];
+  "DerivedClass.initialize" [label="DerivedClass.initialize\n: () => void", fillcolor=lightblue];
+  "main" [label="main\n: () => void", fillcolor=lightgreen];
+  "base.getValue" [label="base.getValue", fillcolor=lightblue];
+  "BaseClass.createDefault" [label="BaseClass.static createDefault\n: () => BaseClass", fillcolor=lightcyan];
+  "defaultBase.getValue" [label="defaultBase.getValue", fillcolor=lightblue];
+  "derived.getValue" [label="derived.getValue", fillcolor=lightblue];
+  "derived.getName" [label="derived.getName", fillcolor=lightblue];
+  "DerivedClass.createWithName" [label="DerivedClass.static createWithName\n: (name: string) => DerivedClass", fillcolor=lightcyan];
+  "namedDerived.getName" [label="namedDerived.getName", fillcolor=lightblue];
+  "printable.print" [label="printable.print", fillcolor=lightblue];
+  "anonymous.getId" [label="anonymous.getId", fillcolor=lightblue];
+  "PrintableClass.print" [label="PrintableClass.print\n: () => void", fillcolor=lightblue];
+  "BaseClass.constructor" -> "initialize";
+  "BaseClass.initialize" -> "console.log";
+  "DerivedClass.constructor" -> "<complex>_32_4";
+  "DerivedClass.initialize" -> "initialize";
+  "DerivedClass.initialize" -> "console.log";
+  "main" -> "console.log";
+  "main" -> "base.getValue";
+  "main" -> "BaseClass.createDefault";
+  "main" -> "defaultBase.getValue";
+  "main" -> "derived.getValue";
+  "main" -> "derived.getName";
+  "main" -> "DerivedClass.createWithName";
+  "main" -> "namedDerived.getName";
+  "main" -> "printable.print";
+  "main" -> "anonymous.getId";
+  "PrintableClass.print" -> "console.log";
+}

@@ -1,0 +1,115 @@
+digraph CallGraph {
+  // デフォルトのノードスタイル
+  node [shape=box, style=filled, fillcolor=lightblue];
+
+  // BaseClass クラスのメンバー
+  subgraph "cluster_BaseClass" {
+    label="BaseClass";
+    style=filled;
+    fillcolor=lightyellow;
+    "BaseClass.value";
+    "BaseClass.constructor";
+    "BaseClass.initialize";
+    "BaseClass.getValue";
+    "BaseClass.createDefault";
+  }
+
+  // DerivedClass クラスのメンバー
+  subgraph "cluster_DerivedClass" {
+    label="DerivedClass";
+    style=filled;
+    fillcolor=lightyellow;
+    "DerivedClass.name";
+    "DerivedClass.constructor";
+    "DerivedClass.initialize";
+    "DerivedClass.getName";
+    "DerivedClass.createWithName";
+  }
+
+  // PrintableClass クラスのメンバー
+  subgraph "cluster_PrintableClass" {
+    label="PrintableClass";
+    style=filled;
+    fillcolor=lightyellow;
+    "PrintableClass.content";
+    "PrintableClass.constructor";
+    "PrintableClass.print";
+  }
+
+  // AnonymousClass クラスのメンバー
+  subgraph "cluster_AnonymousClass" {
+    label="AnonymousClass";
+    style=filled;
+    fillcolor=lightyellow;
+    "AnonymousClass.id";
+    "AnonymousClass.constructor";
+    "AnonymousClass.getId";
+  }
+
+  "<global>_class-sample.ts" [label="global: <global>_class-sample.ts"];
+  "BaseClass" [label="class: BaseClass", fillcolor=lightyellow, shape=ellipse];
+  "BaseClass.value" [label="property: value\n: number", fillcolor=lightgrey];
+  "BaseClass.constructor" [label="constructor\n: any", fillcolor=lightpink];
+  "initialize" [label="initialize"];
+  "BaseClass.initialize" [label="method: initialize\n: () => void", fillcolor=lightblue];
+  "console.log" [label="console.log"];
+  "BaseClass.getValue" [label="method: getValue\n: () => number", fillcolor=lightblue];
+  "BaseClass.createDefault" [label="method: static createDefault\n: () => BaseClass", fillcolor=lightcyan];
+  "DerivedClass" [label="class: DerivedClass", fillcolor=lightyellow, shape=ellipse];
+  "DerivedClass.name" [label="property: name\n: string", fillcolor=lightgrey];
+  "DerivedClass.constructor" [label="constructor\n: any", fillcolor=lightpink];
+  "<complex>_32_4" [label="<complex>_32_4"];
+  "DerivedClass.initialize" [label="method: initialize\n: () => void", fillcolor=lightblue];
+  "DerivedClass.getName" [label="method: getName\n: () => string", fillcolor=lightblue];
+  "DerivedClass.createWithName" [label="method: static createWithName\n: (name: string) => DerivedClass", fillcolor=lightcyan];
+  "PrintableClass" [label="class: PrintableClass", fillcolor=lightyellow, shape=ellipse];
+  "PrintableClass.content" [label="property: content\n: string", fillcolor=lightgrey];
+  "PrintableClass.constructor" [label="constructor\n: any", fillcolor=lightpink];
+  "PrintableClass.print" [label="method: print\n: () => void", fillcolor=lightblue];
+  "AnonymousClass" [label="class: AnonymousClass", fillcolor=lightyellow, shape=ellipse];
+  "AnonymousClass.id" [label="property: id\n: number", fillcolor=lightgrey];
+  "AnonymousClass.constructor" [label="constructor\n: any", fillcolor=lightpink];
+  "AnonymousClass.getId" [label="method: getId\n: () => number", fillcolor=lightblue];
+  "main" [label="function: main\n: () => void", fillcolor=lightgreen];
+  "base.getValue" [label="base.getValue"];
+  "defaultBase.getValue" [label="defaultBase.getValue"];
+  "derived.getValue" [label="derived.getValue"];
+  "derived.getName" [label="derived.getName"];
+  "namedDerived.getName" [label="namedDerived.getName"];
+  "printable.print" [label="printable.print"];
+  "anonymous.getId" [label="anonymous.getId"];
+
+  // クラス継承関係
+  "DerivedClass" -> "BaseClass" [style=dashed, color=blue, label="extends"];
+  "PrintableClass" -> "Printable" [style=dotted, color=green, label="implements"];
+
+  // 関数呼び出し
+  "BaseClass.constructor" -> "initialize" [label="Line: 9"];
+  "BaseClass.initialize" -> "console.log" [label="Line: 14 (property)", color=grey, style=dotted];
+  "<global>_class-sample.ts" -> "initialize" [label="Line: 9"];
+  "<global>_class-sample.ts" -> "console.log" [label="Line: 14 (property)", color=grey, style=dotted];
+  "DerivedClass.constructor" -> "<complex>_32_4" [label="Line: 33"];
+  "DerivedClass.initialize" -> "initialize" [label="Line: 39"];
+  "DerivedClass.initialize" -> "console.log" [label="Line: 40 (property)", color=grey, style=dotted];
+  "<global>_class-sample.ts" -> "<complex>_32_4" [label="Line: 33"];
+  "<global>_class-sample.ts" -> "initialize" [label="Line: 39"];
+  "<global>_class-sample.ts" -> "console.log" [label="Line: 40 (property)", color=grey, style=dotted];
+  "PrintableClass.print" -> "console.log" [label="Line: 68 (property)", color=grey, style=dotted];
+  "<global>_class-sample.ts" -> "console.log" [label="Line: 68 (property)", color=grey, style=dotted];
+  "main" -> "console.log" [label="Line: 89 (property)", color=grey, style=dotted];
+  "main" -> "base.getValue" [label="Line: 89 (property)", color=grey, style=dotted];
+  "main" -> "BaseClass.createDefault" [label="Line: 92 (static method)", color=blue];
+  "main" -> "console.log" [label="Line: 93 (property)", color=grey, style=dotted];
+  "main" -> "defaultBase.getValue" [label="Line: 93 (property)", color=grey, style=dotted];
+  "main" -> "console.log" [label="Line: 97 (property)", color=grey, style=dotted];
+  "main" -> "derived.getValue" [label="Line: 97 (property)", color=grey, style=dotted];
+  "main" -> "console.log" [label="Line: 98 (property)", color=grey, style=dotted];
+  "main" -> "derived.getName" [label="Line: 98 (property)", color=grey, style=dotted];
+  "main" -> "DerivedClass.createWithName" [label="Line: 101 (static method)", color=blue];
+  "main" -> "console.log" [label="Line: 102 (property)", color=grey, style=dotted];
+  "main" -> "namedDerived.getName" [label="Line: 102 (property)", color=grey, style=dotted];
+  "main" -> "printable.print" [label="Line: 106 (property)", color=grey, style=dotted];
+  "main" -> "console.log" [label="Line: 110 (property)", color=grey, style=dotted];
+  "main" -> "anonymous.getId" [label="Line: 110 (property)", color=grey, style=dotted];
+  "<global>_class-sample.ts" -> "main" [label="Line: 114"];
+}

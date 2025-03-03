@@ -1,0 +1,12 @@
+{
+  "name": "@mizchi/ddd-sample-light",
+  "version": "0.1.0",
+  "description": "軽量版関数型ドメインモデリングサンプル",
+  "imports": {
+    "@std/testing": "jsr:@std/testing@^1.0.9",
+    "@std/expect": "jsr:@std/expect@^1.0.13"
+  },
+  "exports": {
+    ".": "./src/app.ts"
+  }
+}

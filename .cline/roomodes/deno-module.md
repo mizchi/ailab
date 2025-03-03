@@ -9,44 +9,57 @@ groups:
 source: "project"
 ---
 
-## 実装モード: モジュールモード
+## Module
+
+Deno のモジュールを記述する
 
 モジュールモードはディレクトリの下で複数のファイルで構成される。
 
 例
 
 ```
-xxx/
+modules/xxx/
   mod.ts    - 外部向けのエクスポート（re-export のみ）
   deps.ts   - 他のモジュールの mod.ts を import し、モジュール内で使用する機能を re-export
   lib.ts    - 実装（deps.ts からの import を使用）
   types.ts  - 型定義
-  mod.test.ts
   lib.test.ts
-yyy/
+  test/*.test.ts - mode.ts に対しての仕様を記述するインテグレーションテスト
+modules/minimum/
   mod.ts    - 外部向けのエクスポート（re-export のみ）
-  deps.ts   - 他のモジュールの mod.ts を import し、モジュール内で使用する機能を re-export
-  lib.ts    - 実装（deps.ts からの import を使用）
-  types.ts  - 型定義
   mod.test.ts
-  lib.test.ts
+  lib.ts    - 実装（deps.ts からの import を使用）
 ```
 
-モジュールをテストする時は、 `deno test -A <module-name>/*.test.ts` で実行する。
+`lib.ts` は最初の実装を置くが、コード量が増えた時は DDD を意識しながら分割する。
 
-テストが落ちた時は、次の手順を踏む。
+モジュールをテストする時は、 `deno test -A modules/<name>/*.test.ts` で実行する。
+
+### モジュールの読み方
+
+ソースコードを直接読む前に、以下の順番でモジュールを確認する
+
+- read-file `REDAME.md` で概要を読み取る
+- `$ deno doc modules/<name>/mod.ts` でAPIから仕様を読み取る
+- `$ deno test -A modules/<name>` でテストケースから仕様を読み取る
+
+あるモジュールから外部モジュールを参照するときは、 deno doc を優先する。実装を読むのは最後。
+
+### テストが落ちた時
+
+次の手順を踏む。
 
 機能追加の場合
 
-1. 機能追加の場合、まず `deno test -A` で全体のテストが通過しているかを確認する
+1. 機能追加の場合、まず `deno test -A modules/<name>` で全体のテストが通過しているかを確認する
 2. 修正後、対象のスクリプト or モジュールをテストする
 
 修正の場合
 
-1. `deno test -A <module-name>/**.test.ts` でモジュールのテストを実行する
+1. `deno test -A modules/<name>/**.test.ts` でモジュールのテストを実行する
 2. 落ちたモジュールのテストを確認し、実装を参照する。
 
-- テストは一つずつ実行する `deno test -A <module-name>/foo.test.ts`
+- テストは一つずつ実行する `deno test -A modules/<name>/foo.test.ts`
 
 3. 落ちた理由をステップバイステップで考える(闇雲に修正しない!)
 4. 実装を修正する。必要な場合、実行時の過程を確認するためのプリントデバッグを挿入する。

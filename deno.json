@@ -7,23 +7,25 @@
         "prefer-const",
         "no-unused-vars",
         "require-await",
-        "no-slow-types"
+        "no-slow-types",
+        "no-inner-declarations"
       ]
     },
-    "include": ["scripts/*.ts"]
+    "include": ["scripts/*.ts", "modules"]
   },
   "workspace": [
-    "./zodcli",
     "./__deprecated/todo-cli",
-    "todo2",
-    "npm-summary",
-    "./ddd-sample",
-    "./ddd-sample-light"
+    "./apps/todo2",
+    "./apps/ddd-sample",
+    "./apps/ddd-sample-light",
+    "./modules/zodcli",
+    "./modules/ts-callgraph",
+    "./modules/npm-summary"
   ],
   "tasks": {
     "build-prompt": "deno run -A .cline/build.ts",
-    "test": "deno test -A .",
-    "test:cov": "deno test --coverage=coverage && deno coverage coverage",
+    "test": "deno test -A --parallel modules apps 'scripts/*.ts'",
+    "test:cov": "deno test -A --coverage=./cov modules apps 'scripts/*.ts' && deno coverage ./cov",
     "check:deps": "deno run scripts/check-deps.ts",
     "hook": "deno run --allow-read --allow-run --allow-write https://deno.land/x/deno_hooks@0.1.1/mod.ts",
     "pre-commit": "deno run -A .hooks/scripts/pre-commit-check.ts"
@@ -38,10 +40,13 @@
     "duckdb": "npm:duckdb@^1.2.0",
     "neverthrow": "npm:neverthrow@^8.2.0",
     "@duckdb/duckdb-wasm": "npm:@duckdb/duckdb-wasm",
-    "zod": "npm:zod@^3.24.2"
+    "zod": "npm:zod@^3.24.2",
+    "https://deno.land/std/flags/mod.ts": "https://deno.land/std/flags/mod.ts",
+    "https://deno.land/std/path/mod.ts": "https://deno.land/std/path/mod.ts",
+    "npm:typescript": "npm:typescript"
   },
   "test": {
-    "include": ["scripts/*.ts"],
-    "exclude": ["type-predictor/**/*.ts", "__deprecated/**/*.ts"]
+    "include": ["scripts/*.ts", "modules/**/*.ts", "apps/**/*.ts"],
+    "exclude": ["./modules/type-predictor/**/*.ts", "__deprecated/**/*.ts"]
   }
 }

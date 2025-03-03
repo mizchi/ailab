@@ -1,4 +1,5 @@
 # Deno
+cov/
 coverage/
 coverage.lcov
 

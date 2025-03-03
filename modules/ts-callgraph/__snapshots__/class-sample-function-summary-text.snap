@@ -1,0 +1,30 @@
+関数実装から関数の呼び出し関係の要約:
+
+BaseClass.constructor: any
+  - initialize
+
+BaseClass.initialize: () => void
+  - console.log
+
+DerivedClass.constructor: any
+  - <complex>_32_4
+
+DerivedClass.initialize: () => void
+  - initialize
+  - console.log
+
+main: () => void
+  - console.log
+  - base.getValue
+  - BaseClass.static createDefault: () => BaseClass
+  - defaultBase.getValue
+  - derived.getValue
+  - derived.getName
+  - DerivedClass.static createWithName: (name: string) => DerivedClass
+  - namedDerived.getName
+  - printable.print
+  - anonymous.getId
+
+PrintableClass.print: () => void
+  - console.log
+
