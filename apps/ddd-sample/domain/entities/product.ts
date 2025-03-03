@@ -2,8 +2,8 @@
  * Product（商品）エンティティの実装
  * 関数型アプローチによる不変エンティティ
  */
-import { Entity, Money, ProductCode, ProductId } from "../types.ts";
-import { err, ok, Result, ValidationError } from "../../core/result.ts";
+import type { Entity, Money, ProductCode, ProductId } from "../types.ts";
+import { err, ok, type Result, ValidationError } from "../../core/result.ts";
 import { createMoney } from "../valueObjects/money.ts";
 import { createProductCode } from "../valueObjects/productCode.ts";
 import { generateProductId, validateProductId } from "../valueObjects/ids.ts";

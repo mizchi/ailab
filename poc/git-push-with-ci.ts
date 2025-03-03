@@ -6,7 +6,7 @@ $ git commit -m "add foo.ts"
 
 # push and wait ci
 
-$ deno run -A scripts/push-with-ci.ts
+$ deno run -A poc/push-with-ci.ts
 Enumerating objects: 7, done.
 Counting objects: 100% (7/7), done.
 Delta compression using up to 16 threads
@@ -24,7 +24,7 @@ JOBS
   ✓ Set up job
   ✓ Checkout repository
   ✓ Setup Deno
-  ✓ Run deno check scripts/*.ts
+  ✓ Run deno check poc/*.ts
   ✓ Run tests
   ✓ Post Checkout repository
   ✓ Complete job

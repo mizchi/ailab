@@ -4,19 +4,22 @@
  *
  * リポジトリを clone して ripgrep で検索するスクリプト
  * 使用方法:
- *   deno run -A scripts/git-shallow-search.ts <github-url> <search-pattern> [options]
- *   deno run -A scripts/git-shallow-search.ts <github-url> --list-files [options]
+ *   deno run -A poc/git-shallow-search.ts <github-url> <search-pattern> [options]
+ *   deno run -A poc/git-shallow-search.ts <github-url> --list-files [options]
  *
  * 例:
- *   deno run -A scripts/git-shallow-search.ts github/Spoon-Knife "README"
- *   deno run -A scripts/git-shallow-search.ts https://github.com/mizchi/monorepo "import" --glob="*.ts"
- *   deno run -A scripts/git-shallow-search.ts mizchi/monorepo --list-files --glob="*.md" --branch=dev
- *   deno run -A scripts/git-shallow-search.ts mizchi/monorepo "import" --files  # ファイル名のみ表示
+ *   deno run -A poc/git-shallow-search.ts github/Spoon-Knife "README"
+ *   deno run -A poc/git-shallow-search.ts https://github.com/mizchi/monorepo "import" --glob="*.ts"
+ *   deno run -A poc/git-shallow-search.ts mizchi/monorepo --list-files --glob="*.md" --branch=dev
+ *   deno run -A poc/git-shallow-search.ts mizchi/monorepo "import" --files  # ファイル名のみ表示
  */
 
 import { dirname, join, resolve } from "jsr:@std/path";
 import $ from "jsr:@david/dax";
-import { createNestedParser, type InferNestedParser } from "jsr:@mizchi/zodcli";
+import {
+  createNestedParser,
+  type InferNestedParser,
+} from "../modules/zodcli/mod.ts";
 import { z } from "npm:zod";
 
 // カラーログ用のヘルパー関数

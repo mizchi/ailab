@@ -4,11 +4,11 @@
  * 関数から関数の関係を整理し、呼び出し方関係なく関数実装から関数の呼び出しとして要約する
  *
  * 使い方:
- * deno run -A scripts/ts-callgraph.ts <ファイルパス> [--depth <数値>] [--output <出力ファイル>] [--format <形式>]
+ * deno run -A poc/ts-callgraph.ts <ファイルパス> [--depth <数値>] [--output <出力ファイル>] [--format <形式>]
  *
  * 例:
- * deno run -A scripts/ts-callgraph.ts scripts/math.ts --output math-graph.dot
- * deno run -A scripts/ts-callgraph.ts scripts/callgraph-sample.ts --format function-summary
+ * deno run -A poc/ts-callgraph.ts poc/math.ts --output math-graph.dot
+ * deno run -A poc/ts-callgraph.ts poc/callgraph-sample.ts --format function-summary
  */
 
 import ts from "npm:typescript";
@@ -49,7 +49,7 @@ if (flags.help || flags.h) {
 TypeScript コールグラフ生成ツール
 
 使い方:
-  deno run -A scripts/ts-callgraph.ts <ファイルパス> [オプション]
+  deno run -A poc/ts-callgraph.ts <ファイルパス> [オプション]
 
 オプション:
   -o, --output <ファイル>    出力ファイル名 (デフォルト: callgraph.dot)
@@ -73,10 +73,10 @@ TypeScript コールグラフ生成ツール
   -h, --help                 このヘルプメッセージを表示
 
 例:
-  deno run -A scripts/ts-callgraph.ts scripts/math.ts
-  deno run -A scripts/ts-callgraph.ts scripts/math.ts --depth 3 --output math-graph.dot
-  deno run -A scripts/ts-callgraph.ts scripts/callgraph-sample.ts --no-ignore-stdlib
-  deno run -A scripts/ts-callgraph.ts scripts/callgraph-sample.ts --format function-summary
+  deno run -A poc/ts-callgraph.ts poc/math.ts
+  deno run -A poc/ts-callgraph.ts poc/math.ts --depth 3 --output math-graph.dot
+  deno run -A poc/ts-callgraph.ts poc/callgraph-sample.ts --no-ignore-stdlib
+  deno run -A poc/ts-callgraph.ts poc/callgraph-sample.ts --format function-summary
   `);
   Deno.exit(0);
 }
@@ -182,7 +182,7 @@ const filePath = flags._[0];
 if (!filePath) {
   console.error("ファイルパスを指定してください");
   console.error(
-    "使い方: deno run -A scripts/ts-callgraph.ts <ファイルパス> [オプション]",
+    "使い方: deno run -A poc/ts-callgraph.ts <ファイルパス> [オプション]",
   );
   console.error("詳細については --help を参照してください");
   Deno.exit(1);

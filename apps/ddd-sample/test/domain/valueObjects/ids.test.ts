@@ -9,7 +9,7 @@ import {
   validateOrderId,
   validateProductId,
 } from "../../../domain/valueObjects/ids.ts";
-import { CustomerId, OrderId, ProductId } from "../../../domain/types.ts";
+import type { CustomerId, OrderId, ProductId } from "../../../domain/types.ts";
 import { ValidationError } from "../../../core/result.ts";
 
 test("generateCustomerId - 有効な形式の顧客IDを生成できる", () => {

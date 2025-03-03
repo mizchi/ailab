@@ -33,7 +33,8 @@ modules/minimum/
 
 `lib.ts` は最初の実装を置くが、コード量が増えた時は DDD を意識しながら分割する。
 
-モジュールをテストする時は、 `deno test -A modules/<name>/*.test.ts` で実行する。
+モジュールをテストする時は、 `deno test -A modules/<name>/*.test.ts`
+で実行する。
 
 ### モジュールの読み方
 
@@ -43,7 +44,8 @@ modules/minimum/
 - `$ deno doc modules/<name>/mod.ts` でAPIから仕様を読み取る
 - `$ deno test -A modules/<name>` でテストケースから仕様を読み取る
 
-あるモジュールから外部モジュールを参照するときは、 deno doc を優先する。実装を読むのは最後。
+あるモジュールから外部モジュールを参照するときは、 deno doc
+を優先する。実装を読むのは最後。
 
 ### テストが落ちた時
 
@@ -51,7 +53,8 @@ modules/minimum/
 
 機能追加の場合
 
-1. 機能追加の場合、まず `deno test -A modules/<name>` で全体のテストが通過しているかを確認する
+1. 機能追加の場合、まず `deno test -A modules/<name>`
+   で全体のテストが通過しているかを確認する
 2. 修正後、対象のスクリプト or モジュールをテストする
 
 修正の場合

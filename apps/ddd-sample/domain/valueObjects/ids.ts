@@ -2,8 +2,8 @@
  * ID値オブジェクトの実装
  * 各エンティティのID生成と検証のためのユーティリティ関数
  */
-import { CustomerId, OrderId, ProductId } from "../types.ts";
-import { err, ok, Result, ValidationError } from "../../core/result.ts";
+import type { CustomerId, OrderId, ProductId } from "../types.ts";
+import { err, ok, type Result, ValidationError } from "../../core/result.ts";
 
 /**
  * ID用のバリデーション正規表現

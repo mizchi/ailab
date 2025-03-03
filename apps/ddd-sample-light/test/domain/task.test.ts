@@ -13,7 +13,7 @@ import {
   filterTasks,
   isTaskActive,
 } from "../../src/domain/task.ts";
-import {
+import type {
   Priority,
   Task,
   TaskId,

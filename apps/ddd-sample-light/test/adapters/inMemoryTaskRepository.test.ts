@@ -6,7 +6,7 @@ import { expect } from "jsr:@std/expect";
 import { test } from "jsr:@std/testing/bdd";
 import { InMemoryTaskRepository } from "../../src/adapters/inMemoryTaskRepository.ts";
 import { createTask, generateTaskId } from "../../src/domain/task.ts";
-import { TaskId, UserId } from "../../src/domain/types.ts";
+import type { TaskId, UserId } from "../../src/domain/types.ts";
 
 // テスト用のヘルパー関数
 function createTestUserId(): UserId {

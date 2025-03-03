@@ -2,8 +2,8 @@
  * Money値オブジェクトの実装
  * 不変かつ等価性が値によって決まる金額を表現
  */
-import { Money } from "../types.ts";
-import { err, ok, Result, ValidationError } from "../../core/result.ts";
+import type { Money } from "../types.ts";
+import { err, ok, type Result, ValidationError } from "../../core/result.ts";
 
 /**
  * Money値オブジェクトを作成する

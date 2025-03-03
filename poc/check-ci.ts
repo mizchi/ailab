@@ -6,7 +6,7 @@
  *
  * 使用方法:
  * ```bash
- * deno run -A scripts/check-ci.ts
+ * deno run -A poc/check-ci.ts
  * ```
  */
 

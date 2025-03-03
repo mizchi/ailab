@@ -4,10 +4,10 @@
  * モジュールを検索するスクリプト
  *
  * Usage:
- *   deno run -A scripts/search_jsr.ts <search_query>
+ *   deno run -A poc/search_jsr.ts <search_query>
  *
  * Example:
- *   deno run -A scripts/search_jsr.ts zod
+ *   deno run -A poc/search_jsr.ts zod
  */
 
 import type { PackageJSON } from "@npm/types";

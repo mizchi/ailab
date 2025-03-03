@@ -1,6 +1,6 @@
 // メインファイル - 他のモジュールを使用する
 import { BaseEntity } from "./base.ts";
-import { createEntity, DerivedEntity, Serializable } from "./derived.ts";
+import { createEntity, DerivedEntity, type Serializable } from "./derived.ts";
 import { DataService } from "./service.ts";
 
 // シリアライズ可能なオブジェクトを処理する関数

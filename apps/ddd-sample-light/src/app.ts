@@ -2,7 +2,7 @@
  * タスク管理アプリケーション
  */
 
-import {
+import type {
   Priority,
   Task,
   TaskFilter,
@@ -18,8 +18,8 @@ import {
   createTask,
   generateTaskId,
 } from "./domain/task.ts";
-import { TaskRepository } from "./domain/taskRepository.ts";
-import { err, ok, Result } from "./core/result.ts";
+import type { TaskRepository } from "./domain/taskRepository.ts";
+import { err, ok, type Result } from "./core/result.ts";
 
 /**
  * タスク管理アプリケーション

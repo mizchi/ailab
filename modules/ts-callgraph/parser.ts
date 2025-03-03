@@ -1,6 +1,6 @@
 import * as path from "https://deno.land/std/path/mod.ts";
 import { CallGraph } from "./callgraph.ts";
-import { CallInfo, NodeInfo } from "./types.ts";
+import type { CallInfo, NodeInfo } from "./types.ts";
 import { ts } from "./deps.ts";
 
 // ファイルを読み込んでTypeScriptのプログラムを作成

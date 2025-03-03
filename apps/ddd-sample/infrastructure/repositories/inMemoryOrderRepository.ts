@@ -1,9 +1,9 @@
 /**
  * 注文リポジトリのインメモリ実装
  */
-import { Order } from "../../domain/entities/order.ts";
-import { OrderRepository } from "../../domain/repositories/orderRepository.ts";
-import {
+import type { Order } from "../../domain/entities/order.ts";
+import type { OrderRepository } from "../../domain/repositories/orderRepository.ts";
+import type {
   CustomerId,
   Money,
   OrderId,
@@ -15,10 +15,10 @@ import {
   err,
   NotFoundError,
   ok,
-  Result,
-  ValidationError,
+  type Result,
+  type ValidationError,
 } from "../../core/result.ts";
-import { validateOrderId } from "../../domain/valueObjects/ids.ts";
+import type { validateOrderId } from "../../domain/valueObjects/ids.ts";
 
 /**
  * インメモリ注文リポジトリ実装

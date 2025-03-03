@@ -1,18 +1,18 @@
 /**
  * 顧客リポジトリのインメモリ実装
  */
-import { Customer } from "../../domain/entities/customer.ts";
-import { CustomerRepository } from "../../domain/repositories/customerRepository.ts";
-import { CustomerId, Email } from "../../domain/types.ts";
+import type { Customer } from "../../domain/entities/customer.ts";
+import type { CustomerRepository } from "../../domain/repositories/customerRepository.ts";
+import type { CustomerId, Email } from "../../domain/types.ts";
 import {
   err,
   NotFoundError,
   ok,
-  Result,
-  ValidationError,
+  type Result,
+  type ValidationError,
 } from "../../core/result.ts";
-import { createEmail } from "../../domain/valueObjects/email.ts";
-import { validateCustomerId } from "../../domain/valueObjects/ids.ts";
+import type { createEmail } from "../../domain/valueObjects/email.ts";
+import type { validateCustomerId } from "../../domain/valueObjects/ids.ts";
 
 /**
  * インメモリ顧客リポジトリ実装

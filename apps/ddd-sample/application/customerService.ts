@@ -7,19 +7,19 @@ import {
   changeCustomerEmail,
   changeCustomerName,
   createCustomer,
-  CreateCustomerParams,
-  Customer,
+  type CreateCustomerParams,
+  type Customer,
   deactivateCustomer,
 } from "../domain/entities/customer.ts";
-import { CustomerRepository } from "../domain/repositories/customerRepository.ts";
+import type { CustomerRepository } from "../domain/repositories/customerRepository.ts";
 import { createEmail } from "../domain/valueObjects/email.ts";
 import { validateCustomerId } from "../domain/valueObjects/ids.ts";
 import {
-  AppError,
+  type AppError,
   err,
   NotFoundError,
   ok,
-  Result,
+  type Result,
   ValidationError,
 } from "../core/result.ts";
 

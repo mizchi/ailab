@@ -5,8 +5,8 @@ import {
   toFunctionSummaryDot,
   toFunctionSummaryText,
 } from "./formatter.ts";
-import { CallGraph } from "./callgraph.ts";
-import { parse, path, ts } from "./deps.ts";
+import type { CallGraph } from "./callgraph.ts";
+import { parse, type path, type ts } from "./deps.ts";
 
 // コマンドライン引数の解析
 const flags = parse(Deno.args, {
@@ -78,10 +78,10 @@ TypeScript コールグラフ生成ツール
   -h, --help                 このヘルプメッセージを表示
 
 例:
-  deno run -A ts-callgraph/cli.ts scripts/math.ts
-  deno run -A ts-callgraph/cli.ts scripts/math.ts --depth 3 --output math-graph.dot
-  deno run -A ts-callgraph/cli.ts scripts/callgraph-sample.ts --no-ignore-stdlib
-  deno run -A ts-callgraph/cli.ts scripts/callgraph-sample.ts --format function-summary
+  deno run -A ts-callgraph/cli.ts poc/math.ts
+  deno run -A ts-callgraph/cli.ts poc/math.ts --depth 3 --output math-graph.dot
+  deno run -A ts-callgraph/cli.ts poc/callgraph-sample.ts --no-ignore-stdlib
+  deno run -A ts-callgraph/cli.ts poc/callgraph-sample.ts --format function-summary
   `);
   Deno.exit(0);
 }

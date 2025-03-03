@@ -1,9 +1,13 @@
 /**
  * 顧客リポジトリのインターフェース定義
  */
-import { Customer } from "../entities/customer.ts";
-import { CustomerId, Email } from "../types.ts";
-import { NotFoundError, Result, ValidationError } from "../../core/result.ts";
+import type { Customer } from "../entities/customer.ts";
+import type { CustomerId, Email } from "../types.ts";
+import type {
+  NotFoundError,
+  Result,
+  ValidationError,
+} from "../../core/result.ts";
 
 /**
  * 顧客リポジトリのインターフェース

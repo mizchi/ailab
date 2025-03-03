@@ -2,13 +2,13 @@
  * OrderLine（注文明細）値オブジェクトの実装
  * 商品ID、数量、単価を持つ不変オブジェクト
  */
-import { Money, ProductId, Quantity } from "../types.ts";
+import type { Money, ProductId, Quantity } from "../types.ts";
 import {
-  combine,
+  type combine,
   err,
   ok,
-  Result,
-  ValidationError,
+  type Result,
+  type ValidationError,
 } from "../../core/result.ts";
 import { createQuantity } from "./quantity.ts";
 import { createMoney, multiplyMoney } from "./money.ts";

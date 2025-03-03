@@ -5,13 +5,13 @@ import {
   changeQuantity,
   changeUnitPrice,
   createOrderLine,
-  OrderLine,
+  type OrderLine,
   orderLineEquals,
 } from "../../../domain/valueObjects/orderLine.ts";
-import { Money, ProductId } from "../../../domain/types.ts";
+import type { Money, ProductId } from "../../../domain/types.ts";
 import { ValidationError } from "../../../core/result.ts";
-import { createMoney } from "../../../domain/valueObjects/money.ts";
-import { createQuantity } from "../../../domain/valueObjects/quantity.ts";
+import type { createMoney } from "../../../domain/valueObjects/money.ts";
+import type { createQuantity } from "../../../domain/valueObjects/quantity.ts";
 
 // テスト用のヘルパー関数
 function createTestProductId(): ProductId {

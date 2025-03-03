@@ -2,8 +2,8 @@
  * タスクのドメインロジック
  */
 
-import { Priority, Task, TaskId, TaskStatus, UserId } from "./types.ts";
-import { err, ok, Result, ValidationError } from "../core/result.ts";
+import type { Priority, Task, TaskId, TaskStatus, UserId } from "./types.ts";
+import { err, ok, type Result, ValidationError } from "../core/result.ts";
 
 /**
  * 新しいタスクを作成する

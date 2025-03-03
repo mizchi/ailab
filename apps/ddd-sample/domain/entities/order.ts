@@ -2,7 +2,7 @@
  * Order（注文）エンティティの実装
  * 集約ルートとして機能する関数型アプローチによる不変エンティティ
  */
-import {
+import type {
   CustomerId,
   Entity,
   Money,
@@ -13,14 +13,14 @@ import {
 import {
   calculateSubtotal,
   createOrderLine,
-  CreateOrderLineParams,
-  OrderLine,
+  type CreateOrderLineParams,
+  type OrderLine,
 } from "../valueObjects/orderLine.ts";
 import {
-  combine,
+  type combine,
   err,
   ok,
-  Result,
+  type Result,
   sequence,
   ValidationError,
 } from "../../core/result.ts";
@@ -29,7 +29,7 @@ import {
   validateCustomerId,
   validateOrderId,
 } from "../valueObjects/ids.ts";
-import { addMoney, createMoney } from "../valueObjects/money.ts";
+import { type addMoney, createMoney } from "../valueObjects/money.ts";
 
 /**
  * 注文エンティティの構造

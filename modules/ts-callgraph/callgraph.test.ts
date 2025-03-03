@@ -1,8 +1,8 @@
 import { expect } from "jsr:@std/expect";
 import { test } from "jsr:@std/testing/bdd";
 import { CallGraph } from "./callgraph.ts";
-import { createProgram, generateCallGraph } from "./parser.ts";
-import * as path from "jsr:@std/path";
+import type { createProgram, generateCallGraph } from "./parser.ts";
+import type * as path from "jsr:@std/path";
 
 test("関数実装の要約が正しく動作する", () => {
   const graph = new CallGraph();

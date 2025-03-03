@@ -4,36 +4,36 @@
  */
 import {
   cancelOrder,
-  createOrder,
+  type createOrder,
   deliverOrder,
-  Order,
+  type Order,
   payOrder,
   shipOrder,
 } from "../domain/entities/order.ts";
-import { OrderRepository } from "../domain/repositories/orderRepository.ts";
-import { CustomerRepository } from "../domain/repositories/customerRepository.ts";
-import { ProductRepository } from "../domain/repositories/productRepository.ts";
+import type { OrderRepository } from "../domain/repositories/orderRepository.ts";
+import type { CustomerRepository } from "../domain/repositories/customerRepository.ts";
+import type { ProductRepository } from "../domain/repositories/productRepository.ts";
 import {
   validateCustomerId,
   validateOrderId,
   validateProductId,
 } from "../domain/valueObjects/ids.ts";
-import { createQuantity } from "../domain/valueObjects/quantity.ts";
+import type { createQuantity } from "../domain/valueObjects/quantity.ts";
 import {
-  calculateOrderTotal,
+  type calculateOrderTotal,
   getNextAction,
   processOrder,
   validateOrderAvailability,
 } from "../domain/services/orderService.ts";
 import {
-  AppError,
+  type AppError,
   err,
   NotFoundError,
   ok,
-  Result,
+  type Result,
   ValidationError,
 } from "../core/result.ts";
-import { Product } from "../domain/entities/product.ts";
+import type { Product } from "../domain/entities/product.ts";
 
 /**
  * 注文明細DTOインターフェース

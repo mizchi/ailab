@@ -1,5 +1,5 @@
-import { CallGraph } from "./callgraph.ts";
-import { FunctionImplementationInfo } from "./types.ts";
+import type { CallGraph } from "./callgraph.ts";
+import type { FunctionImplementationInfo } from "./types.ts";
 
 // 要約情報をDOT形式で出力（関数間の呼び出しのみ）
 export function toFunctionCallDot(

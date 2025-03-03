@@ -1,5 +1,18 @@
 {
   "nodeModulesDir": "auto",
+  "workspace": [
+    "./__deprecated/todo-cli",
+    "./apps/todo2",
+    "./apps/ddd-sample",
+    "./apps/ddd-sample-light",
+    "./modules/zodcli",
+    "./modules/ts-callgraph",
+    "./modules/npm-summary"
+  ],
+  "test": {
+    "include": ["poc/*.ts", "modules/**/*.ts", "apps/**/*.ts"],
+    "exclude": ["./modules/type-predictor/**/*.ts", "__deprecated/**/*.ts"]
+  },
   "lint": {
     "rules": {
       "exclude": [
@@ -11,17 +24,8 @@
         "no-inner-declarations"
       ]
     },
-    "include": ["scripts/*.ts", "modules"]
+    "include": ["scripts/*.ts", "modules", "apps"]
   },
-  "workspace": [
-    "./__deprecated/todo-cli",
-    "./apps/todo2",
-    "./apps/ddd-sample",
-    "./apps/ddd-sample-light",
-    "./modules/zodcli",
-    "./modules/ts-callgraph",
-    "./modules/npm-summary"
-  ],
   "tasks": {
     "build-prompt": "deno run -A .cline/build.ts",
     "test": "deno test -A --parallel modules apps 'scripts/*.ts'",
@@ -44,9 +48,5 @@
     "https://deno.land/std/flags/mod.ts": "https://deno.land/std/flags/mod.ts",
     "https://deno.land/std/path/mod.ts": "https://deno.land/std/path/mod.ts",
     "npm:typescript": "npm:typescript"
-  },
-  "test": {
-    "include": ["scripts/*.ts", "modules/**/*.ts", "apps/**/*.ts"],
-    "exclude": ["./modules/type-predictor/**/*.ts", "__deprecated/**/*.ts"]
   }
 }

@@ -3,25 +3,25 @@
  * エンティティをまたがるドメインロジックを提供
  */
 import {
-  cancelOrder,
+  type cancelOrder,
   createOrder,
-  Order,
-  payOrder,
-  shipOrder,
+  type Order,
+  type payOrder,
+  type shipOrder,
 } from "../entities/order.ts";
-import {
+import type {
   CustomerId,
   Money,
   OrderId,
   OrderStatus,
   ProductId,
 } from "../types.ts";
-import { decreaseStock, Product } from "../entities/product.ts";
+import { decreaseStock, type Product } from "../entities/product.ts";
 import {
   err,
-  NotFoundError,
+  type NotFoundError,
   ok,
-  Result,
+  type Result,
   sequence,
   ValidationError,
 } from "../../core/result.ts";

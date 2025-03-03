@@ -34,7 +34,7 @@ if (import.meta.main) {
 
   if (args.length < 1) {
     console.log(
-      "使用法: deno run -A scripts/search-files.ts <検索パターン> [検索パス] [追加オプション...]",
+      "使用法: deno run -A poc/search-files.ts <検索パターン> [検索パス] [追加オプション...]",
     );
     Deno.exit(1);
   }

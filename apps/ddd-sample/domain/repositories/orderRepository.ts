@@ -1,9 +1,13 @@
 /**
  * 注文リポジトリのインターフェース定義
  */
-import { Order } from "../entities/order.ts";
-import { CustomerId, OrderId, OrderStatus, ProductId } from "../types.ts";
-import { NotFoundError, Result, ValidationError } from "../../core/result.ts";
+import type { Order } from "../entities/order.ts";
+import type { CustomerId, OrderId, OrderStatus, ProductId } from "../types.ts";
+import type {
+  NotFoundError,
+  Result,
+  ValidationError,
+} from "../../core/result.ts";
 
 /**
  * 注文リポジトリのインターフェース

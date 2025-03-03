@@ -1,9 +1,13 @@
 /**
  * 商品リポジトリのインターフェース定義
  */
-import { Product, ProductCategory } from "../entities/product.ts";
-import { ProductCode, ProductId } from "../types.ts";
-import { NotFoundError, Result, ValidationError } from "../../core/result.ts";
+import type { Product, ProductCategory } from "../entities/product.ts";
+import type { ProductCode, ProductId } from "../types.ts";
+import type {
+  NotFoundError,
+  Result,
+  ValidationError,
+} from "../../core/result.ts";
 
 /**
  * 商品リポジトリのインターフェース

@@ -2,8 +2,8 @@
  * Quantity値オブジェクトの実装
  * 不変かつ正の数量を表現する
  */
-import { Quantity } from "../types.ts";
-import { err, ok, Result, ValidationError } from "../../core/result.ts";
+import type { Quantity } from "../types.ts";
+import { err, ok, type Result, ValidationError } from "../../core/result.ts";
 
 /**
  * Quantity値オブジェクトを作成する

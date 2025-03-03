@@ -1,5 +1,5 @@
 // 派生クラスを定義するファイル
-import { BaseEntity, generateId, Loggable } from "./base.ts";
+import { BaseEntity, generateId, type Loggable } from "./base.ts";
 
 // 追加のインターフェース
 export interface Serializable {

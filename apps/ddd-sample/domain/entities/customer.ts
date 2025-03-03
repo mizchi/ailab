@@ -2,8 +2,8 @@
  * Customer（顧客）エンティティの実装
  * 関数型アプローチによる不変エンティティ
  */
-import { CustomerId, Email, Entity } from "../types.ts";
-import { err, ok, Result, ValidationError } from "../../core/result.ts";
+import type { CustomerId, Email, Entity } from "../types.ts";
+import { err, ok, type Result, ValidationError } from "../../core/result.ts";
 import { createEmail } from "../valueObjects/email.ts";
 import { generateCustomerId, validateCustomerId } from "../valueObjects/ids.ts";
 

@@ -5,7 +5,7 @@ import { type dirname, join } from "jsr:@std/path";
 /**
  * TypeScript の import 解決プロセスをトレースするスクリプト
  * Deno 特有の挙動（.ts 拡張子のインポート、npm/jsr モジュールの解決）に対応
- * 使用方法: deno run -A scripts/trace_import_resolution.ts <target_file>
+ * 使用方法: deno run -A poc/trace_import_resolution.ts <target_file>
  */
 
 interface DenoResolveConfig {
@@ -214,7 +214,7 @@ if (import.meta.main) {
   const args = Deno.args;
   if (args.length !== 1) {
     console.error(
-      "Usage: deno run -A scripts/trace_import_resolution.ts <target_file>",
+      "Usage: deno run -A poc/trace_import_resolution.ts <target_file>",
     );
     Deno.exit(1);
   }

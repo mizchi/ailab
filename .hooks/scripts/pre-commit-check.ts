@@ -7,7 +7,7 @@ const rootConfig = Deno.readTextFileSync(
   path.join(Deno.cwd(), "deno.json"),
 );
 const workspaces = JSON.parse(rootConfig).workspace;
-const rootLevelScripts = ["scripts"];
+const rootLevelpoc = ["poc"];
 
 // Git でステージングされたファイル一覧を取得
 const changedFiles = new Deno.Command("git", {
@@ -30,7 +30,7 @@ for (const file of changedFilesStr.split("\n")) {
   }
 
   // ルートレベルのスクリプト変更をチェック
-  for (const scriptDir of rootLevelScripts) {
+  for (const scriptDir of rootLevelpoc) {
     if (file.startsWith(scriptDir + "/")) {
       changedPaths.add(scriptDir);
       break;
@@ -81,7 +81,7 @@ if (!lintStatus.success) {
 
 // 変更されたワークスペース/スクリプトに対してテストを実行
 for (const path of changedPaths) {
-  if (path === "root" || path === "scripts") continue; // ルートとscriptsのテストはスキップ
+  if (path === "root" || path === "poc") continue; // ルートとpocのテストはスキップ
 
   console.log(`\n🧪 Running tests for ${path}...`);
 

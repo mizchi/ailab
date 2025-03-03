@@ -37,4 +37,4 @@ export interface Entity<Id> {
 }
 
 // Result型のインポート
-import { Result } from "../core/result.ts";
+import type { Result } from "../core/result.ts";

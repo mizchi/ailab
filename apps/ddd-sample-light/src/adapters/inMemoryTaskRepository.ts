@@ -3,9 +3,9 @@
  * テストや開発時に使用する簡易的な実装
  */
 
-import { Task, TaskFilter, TaskId } from "../domain/types.ts";
-import { TaskRepository } from "../domain/taskRepository.ts";
-import { err, ok, Result } from "../core/result.ts";
+import type { Task, TaskFilter, TaskId } from "../domain/types.ts";
+import type { TaskRepository } from "../domain/taskRepository.ts";
+import { err, ok, type Result } from "../core/result.ts";
 import { filterTasks } from "../domain/task.ts";
 
 export class InMemoryTaskRepository implements TaskRepository {

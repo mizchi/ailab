@@ -1,4 +1,4 @@
-import { CallInfo } from "./types.ts";
+import type { CallInfo } from "./types.ts";
 
 // 標準ライブラリのメンバーかどうかを判定する関数
 const isStdLibMember = (name: string): boolean => {

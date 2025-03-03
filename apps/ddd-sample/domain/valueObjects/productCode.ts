@@ -2,8 +2,8 @@
  * ProductCode値オブジェクトの実装
  * 不変かつ特定の形式を持つ商品コードを表現
  */
-import { ProductCode } from "../types.ts";
-import { err, ok, Result, ValidationError } from "../../core/result.ts";
+import type { ProductCode } from "../types.ts";
+import { err, ok, type Result, ValidationError } from "../../core/result.ts";
 
 /**
  * 商品コードのバリデーション正規表現

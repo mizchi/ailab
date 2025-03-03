@@ -1,18 +1,21 @@
 /**
  * 商品リポジトリのインメモリ実装
  */
-import { Product, ProductCategory } from "../../domain/entities/product.ts";
-import { ProductRepository } from "../../domain/repositories/productRepository.ts";
-import { ProductCode, ProductId } from "../../domain/types.ts";
+import type {
+  Product,
+  ProductCategory,
+} from "../../domain/entities/product.ts";
+import type { ProductRepository } from "../../domain/repositories/productRepository.ts";
+import type { ProductCode, ProductId } from "../../domain/types.ts";
 import {
   err,
   NotFoundError,
   ok,
-  Result,
-  ValidationError,
+  type Result,
+  type ValidationError,
 } from "../../core/result.ts";
-import { createProductCode } from "../../domain/valueObjects/productCode.ts";
-import { validateProductId } from "../../domain/valueObjects/ids.ts";
+import type { createProductCode } from "../../domain/valueObjects/productCode.ts";
+import type { validateProductId } from "../../domain/valueObjects/ids.ts";
 
 /**
  * インメモリ商品リポジトリ実装
