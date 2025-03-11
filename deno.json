@@ -5,9 +5,11 @@
     "./apps/todo2",
     "./apps/ddd-sample",
     "./apps/ddd-sample-light",
+    "./apps/tdd-example",
     "./modules/zodcli",
     "./modules/ts-callgraph",
-    "./modules/npm-summary"
+    "./modules/npm-summary",
+    "./modules/logger"
   ],
   "test": {
     "include": ["poc/*.ts", "modules/**/*.ts", "apps/**/*.ts"],
@@ -42,6 +44,7 @@
     "@npm/types": "npm:@npm/types@^2.0.0",
     "drizzle-orm": "npm:drizzle-orm@^0.40.0",
     "duckdb": "npm:duckdb@^1.2.0",
+    "json-colorizer": "npm:json-colorizer@^3.0.1",
     "neverthrow": "npm:neverthrow@^8.2.0",
     "@duckdb/duckdb-wasm": "npm:@duckdb/duckdb-wasm",
     "zod": "npm:zod@^3.24.2",

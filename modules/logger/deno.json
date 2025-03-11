@@ -1,0 +1,13 @@
+{
+  "name": "@mizchi/logger",
+  "version": "0.1.0",
+  "exports": {
+    ".": "./mod.ts"
+  },
+  "tasks": {},
+  "imports": {
+    "@std/expect": "jsr:@std/expect@^1.0.13",
+    "@std/testing": "jsr:@std/testing@^1.0.9",
+    "picocolors": "npm:picocolors@^1.1.1"
+  }
+}
