@@ -4,6 +4,7 @@
   "exports": {
     ".": "./mod.ts"
   },
+  "license": "MIT",
   "tasks": {},
   "imports": {
     "@std/expect": "jsr:@std/expect@^1.0.13",
