@@ -5,7 +5,7 @@
  * 様々な表示形式（通常表示、テーブル表示など）をサポートします。
  */
 
-import pc from "npm:picocolors";
+import pc from "picocolors";
 import { inspect } from "node:util";
 import type {
   DefaultDisplayOptions,
