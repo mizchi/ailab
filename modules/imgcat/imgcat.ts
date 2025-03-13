@@ -1,6 +1,6 @@
-import { decodeBase64, encodeBase64 } from "jsr:@std/encoding/base64";
+import { decodeBase64, encodeBase64 } from "@std/encoding/base64";
 import path from "node:path";
-import sharp from "npm:sharp";
+import sharp from "sharp";
 
 export function printImageFromBase64(
   base64: string,
