@@ -1,12 +1,15 @@
 # Using Sampler パターン
 
-このドキュメントでは、`using` 構文と `Symbol.dispose` を活用したサンプラーパターンについて説明します。このパターンは、大量のデータから一部をサンプリングし、スコープ終了時に自動的に結果を表示するのに役立ちます。
+このドキュメントでは、`using` 構文と `Symbol.dispose`
+を活用したサンプラーパターンについて説明します。このパターンは、大量のデータから一部をサンプリングし、スコープ終了時に自動的に結果を表示するのに役立ちます。
 
 ## 基本概念
 
 ### Symbol.dispose と using 構文
 
-ECMAScript の `Symbol.dispose` は、リソースの自動クリーンアップを可能にする特殊なシンボルです。`using` 構文と組み合わせることで、スコープを抜けるときに自動的に特定の処理を実行できます。
+ECMAScript の `Symbol.dispose`
+は、リソースの自動クリーンアップを可能にする特殊なシンボルです。`using`
+構文と組み合わせることで、スコープを抜けるときに自動的に特定の処理を実行できます。
 
 ```typescript
 {
@@ -61,7 +64,7 @@ function createSimpleSampler<T>(
   return {
     add(item: T): void {
       count++;
-      
+
       if (samples.length < n) {
         // nに達するまでは全て追加
         samples.push(item);
@@ -97,12 +100,12 @@ function createSimpleSampler<T>(
 {
   // 最大5つのアイテムをサンプリングするサンプラーを作成
   using sampler = createSimpleSampler<number>(5);
-  
+
   // 大量のデータを処理
   for (let i = 0; i < 1000; i++) {
     sampler.add(i);
   }
-  
+
   // スコープを抜けると自動的に結果が表示される
 }
 // 出力例:
@@ -126,15 +129,23 @@ function createSimpleSampler<T>(
       for (const item of items) {
         console.log(`- ${item}`);
       }
-    }
+    },
   );
-  
+
   // データを追加
-  const words = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape"];
+  const words = [
+    "apple",
+    "banana",
+    "cherry",
+    "date",
+    "elderberry",
+    "fig",
+    "grape",
+  ];
   for (const word of words) {
     sampler.add(word);
   }
-  
+
   // スコープ終了時にカスタム形式で表示
 }
 // 出力例:
@@ -161,9 +172,9 @@ interface User {
       for (const user of users) {
         console.log(`- ID: ${user.id}, 名前: ${user.name}, 役割: ${user.role}`);
       }
-    }
+    },
   );
-  
+
   // ユーザーデータを処理
   const users: User[] = [
     { id: 1, name: "Alice", role: "Admin" },
@@ -172,7 +183,7 @@ interface User {
     { id: 4, name: "Dave", role: "Moderator" },
     { id: 5, name: "Eve", role: "User" },
   ];
-  
+
   for (const user of users) {
     sampler.add(user);
   }
@@ -186,7 +197,7 @@ interface User {
 ```typescript
 {
   using sampler = createSimpleSampler<number>(5);
-  
+
   for (let i = 0; i < 1000; i++) {
     // 偶数のみをサンプリング
     if (i % 2 === 0) {
@@ -198,10 +209,14 @@ interface User {
 
 ## まとめ
 
-`using` 構文と `Symbol.dispose` を組み合わせたサンプラーパターンは、以下のような利点があります：
+`using` 構文と `Symbol.dispose`
+を組み合わせたサンプラーパターンは、以下のような利点があります：
 
-1. **自動クリーンアップ**: スコープを抜けると自動的に結果が表示されるため、表示処理の呼び出し忘れがない
-2. **コードの簡潔さ**: 明示的なクリーンアップコードが不要になり、コードがすっきりする
-3. **デバッグの容易さ**: 大量のデータから代表的なサンプルだけを表示することで、デバッグが容易になる
+1. **自動クリーンアップ**:
+   スコープを抜けると自動的に結果が表示されるため、表示処理の呼び出し忘れがない
+2. **コードの簡潔さ**:
+   明示的なクリーンアップコードが不要になり、コードがすっきりする
+3. **デバッグの容易さ**:
+   大量のデータから代表的なサンプルだけを表示することで、デバッグが容易になる
 
 このパターンは特に、ログ出力やデバッグ、パフォーマンス測定などのシナリオで役立ちます。

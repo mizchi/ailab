@@ -173,7 +173,7 @@ Deno.test("スナップショットテスト", async (t) => {
 import { FakeTime } from "@std/testing/time";
 
 Deno.test("タイマーテスト", () => {
-  using time = new FakeTime();// .dispose()自動呼び出し
+  using time = new FakeTime(); // .dispose()自動呼び出し
 
   let count = 0;
   const id = setInterval(() => count++, 1000);

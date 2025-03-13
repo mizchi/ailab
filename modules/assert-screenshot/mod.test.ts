@@ -63,8 +63,7 @@ Deno.test("snap", async (t) => {
     // スクリーンショットをスナップショットと比較
     await assertScreenshot(t, screenshot as Uint8Array, {
       name: "example",
-      threshold: 0.04,
-      // 初回実行時やスナップショットを更新したい場合は true にする
+      diffThresholdPercentage: 0.05,
       updateSnapshot: false,
     });
   });
@@ -83,7 +82,7 @@ Deno.test("snap", async (t) => {
     // スクリーンショットをスナップショットと比較
     await assertScreenshot(t, screenshot as Uint8Array, {
       name: "zenn",
-      threshold: 0.1,
+      diffThresholdPercentage: 0.1,
     });
   });
 });

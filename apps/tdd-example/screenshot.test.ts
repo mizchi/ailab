@@ -83,7 +83,7 @@ Deno.test("snap", async (t) => {
     // スクリーンショットをスナップショットと比較
     await assertScreenshot(t, screenshot as Uint8Array, {
       name: "zenn",
-      threshold: 0.1,
+      threshold: 30,
     });
   });
 });

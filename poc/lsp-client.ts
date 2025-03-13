@@ -374,7 +374,7 @@ class LspClient {
 }
 
 if (import.meta.main) {
-  await using client = new LspClient(true);// デバッグモードを有効化
+  await using client = new LspClient(true); // デバッグモードを有効化
 
   // 初期化
   console.log("Initializing LSP client...");
