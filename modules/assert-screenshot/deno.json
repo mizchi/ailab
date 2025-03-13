@@ -1,0 +1,16 @@
+{
+  "name": "@mizchi/assert-screenshot",
+  "version": "0.1.0",
+  "exports": {
+    ".": "./mod.ts"
+  },
+  "license": "MIT",
+  "tasks": {},
+  "imports": {
+    "@std/expect": "jsr:@std/expect@^1.0.13",
+    "@std/testing": "jsr:@std/testing@^1.0.9",
+    "pixelmatch": "npm:pixelmatch@^7.1.0",
+    "pngjs": "npm:pngjs@^7.0.0",
+    "puppeteer": "npm:puppeteer@^24.4.0"
+  }
+}
