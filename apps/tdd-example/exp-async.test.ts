@@ -185,6 +185,8 @@ Deno.test("with pptr", async (t) => {
   await t.step("example.com", async () => {
     await using pageCtx = await browserCtx.newPage();
     const page = pageCtx.page;
+    const W = 800;
+    const H = 1000;
     await pageCtx.page.setViewport({
       width: 800,
       height: 1000,
@@ -195,10 +197,6 @@ Deno.test("with pptr", async (t) => {
     const bbox = (await example.boundingBox())!;
     // const title = await pageCtx.page.title();
     // expect(title).toBe("Example Domain");
-    const diff = new PNG({ width: img1.width, height: img1.height });
-    pixelmatch(img1.data, img2.data, diff.data, img1.width, img1.height, {
-      threshold: 0.1,
-    });
     const clipRect = {
       x: bbox.x,
       y: bbox.y,
@@ -209,6 +207,12 @@ Deno.test("with pptr", async (t) => {
       // fullPage: true,
       encoding: "binary",
       clip: clipRect,
+    });
+    const diff = new PNG({ width: W, height: H });
+    const img1 = new PNG({ width: W, height: H });
+    const img2 = new PNG({ width: W });
+    pixelmatch(img1.data, img2.data, diff.data, img1.width, img1.height, {
+      threshold: 0.1,
     });
 
     const screenshot2 = await pageCtx.page.screenshot({
@@ -228,13 +232,6 @@ Deno.test("with pptr", async (t) => {
       // { threshold: 0.1 },
     );
     console.log("matched", matched);
-    // Buffer.from(screenshot, "base64"),
-    // Buffer.from(screenshot2, "base64"),
-    // null,
-
-    // expect(screenshot).toMatchSnapshot();
-    // await assertSnapshot(t, screenshot);
-    // expe
   });
 
   await t.step("yahoo.co.jp", async () => {

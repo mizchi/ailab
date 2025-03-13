@@ -1,6 +1,6 @@
 import "npm:core-js/proposals/explicit-resource-management.js";
 import { assertScreenshot } from "./mod.ts";
-import pptr from "npm:puppeteer";
+import pptr from "puppeteer";
 
 /**
  * ブラウザを使用するためのヘルパー関数

@@ -6,7 +6,9 @@
     "./apps/ddd-sample",
     "./apps/ddd-sample-light",
     "./apps/tdd-example",
+    "./modules/assert-screenshot",
     "./modules/zodcli",
+    "./modules/imgcat",
     "./modules/ts-callgraph",
     "./modules/npm-summary",
     "./modules/logger"

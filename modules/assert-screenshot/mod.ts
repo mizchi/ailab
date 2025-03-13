@@ -1,9 +1,10 @@
-import "npm:core-js/proposals/explicit-resource-management.js";
-import pixelmatch from "npm:pixelmatch";
-import { PNG } from "npm:pngjs";
+// import "npm:core-js/proposals/explicit-resource-management.js";
+import pixelmatch from "pixelmatch";
+import { PNG } from "pngjs";
 import { Buffer } from "node:buffer";
 import { existsSync, mkdirSync } from "node:fs";
 import path from "node:path";
+import { printImage } from "@mizchi/imgcat";
 
 // スナップショットモードの型
 export type SnapshotMode = "update" | "assert";
@@ -256,8 +257,6 @@ export async function comparePngs(
   const diffPercentage = (numDiffPixels / (width * height)) * 100;
   return { numDiffPixels, width, height, diff: diff as any, diffPercentage };
 }
-
-import { printImage } from "../imgcat/imgcat.ts";
 
 /**
  * スクリーンショットを比較し、差分があれば保存する関数（最適化版）
