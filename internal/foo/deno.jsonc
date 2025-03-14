@@ -1,0 +1,24 @@
+{
+  "name": "@i/foo",
+  "exports": {
+    ".": "./mod.ts"
+  },
+  "compilerOptions": {
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true
+  },
+  "lint": {
+    "exclude": ["**/**/wip*.ts"],
+    "rules": {
+      "tags": ["recommended"],
+      "include": ["no-unused-vars", "no-async-promise-executor"]
+    }
+  },
+  "tasks": {
+    "unit": "deno test -A --parallel --doc",
+    "cov": "rm -r ./coverage && deno test -A --parallel --coverage --doc && deno coverage ./coverage",
+    "unused": "deno run -R --allow-env --allow-read npm:tsr mod.ts examples/*.ts 'test/.*\\.test\\.ts$'",
+    "health": "deno lint && deno task cov && deno task unused"
+  }
+}

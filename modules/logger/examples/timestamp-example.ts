@@ -1,4 +1,4 @@
-import { createLogger, LogLevel } from "../mod.ts";
+import { createLogger, type LogLevel } from "../mod.ts";
 
 // サンプルデータ
 const sampleObject = {

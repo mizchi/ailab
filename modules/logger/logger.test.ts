@@ -7,7 +7,7 @@ import {
   parseLogLevel,
 } from "./logger.ts";
 import { assertSpyCalls, spy } from "@std/testing/mock";
-import { LogEntry } from "./types.ts";
+import type { LogEntry } from "./types.ts";
 
 // モック用のコンソール出力関数
 function createMockOutput() {

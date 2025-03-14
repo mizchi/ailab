@@ -90,6 +90,7 @@
     "npm:pngjs@7": "7.0.0",
     "npm:puppeteer@*": "24.2.1_devtools-protocol@0.0.1402036_typescript@5.7.3",
     "npm:puppeteer@^24.4.0": "24.4.0_devtools-protocol@0.0.1413902_typescript@5.7.3",
+    "npm:rimraf@*": "5.0.10",
     "npm:sharp@*": "0.33.5",
     "npm:sharp@~0.33.5": "0.33.5",
     "npm:std@*": "0.1.40",

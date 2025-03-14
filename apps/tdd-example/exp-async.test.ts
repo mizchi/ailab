@@ -1,6 +1,6 @@
 import "npm:core-js/proposals/explicit-resource-management.js";
 
-import { Async, expect } from "@std/expect";
+import { type Async, expect } from "@std/expect";
 
 Deno.test("check async throw", async () => {
   await expect((async () => {

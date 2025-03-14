@@ -2,16 +2,9 @@
   "nodeModulesDir": "auto",
   "workspace": [
     "./__deprecated/todo-cli",
-    "./apps/todo2",
-    "./apps/ddd-sample",
-    "./apps/ddd-sample-light",
-    "./apps/tdd-example",
-    "./modules/assert-screenshot",
-    "./modules/zodcli",
-    "./modules/imgcat",
-    "./modules/ts-callgraph",
-    "./modules/npm-summary",
-    "./modules/logger"
+    "./apps/*",
+    "./modules/*",
+    "./internal/*"
   ],
   "test": {
     "include": ["poc/*.ts", "modules/**/*.ts", "apps/**/*.ts"],

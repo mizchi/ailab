@@ -2,10 +2,150 @@
 
 ### npm 互換モード
 
-私は Deno の Node 互換APIが使えます。
+私は Deno の Node 互換API を使います。
 
-npm のライブラリを参照できる。`npm:zod` のように npm
-からライブラリを参照します。
+```ts
+import path from "node:path";
+import {z} from `npm:zod`;
+```
+
+モジュール下では、 deno.jsonc でを宣言して使います。
+
+`deno add npm:zod`
+
+```json
+  "imports": {
+    "zod": "npm:zod@^3.24.2"
+  }
+```
+
+```ts
+import {zod} from "zod";
+```
+
+## Example: Directory rules
+
+```
+<module-name>/
+  # interface
+  mod.ts
+  deno.jsonc
+
+  # impl with unit tests
+  internal/
+    *.ts
+    *.test.ts
+
+  # integration tests for mod.ts
+  test/*.ts
+
+  # exmaple usages
+  examples/*.ts
+```
+
+1 ファイルは 500 行以内を目安にする。
+
+モジュールをテストする時は、 `deno test -A modules/<name>/*.test.ts` で実行する。
+
+## Example: mod.ts
+
+```ts
+/**
+ * @module module description 
+ */
+
+/**
+ * Define types
+ */
+export type Point = {};
+
+// reexport ./internal
+export { distance } from "./interal/distance.ts";
+```
+
+そのモジュールから提供する型を、 mod.ts で定義する。
+
+`mod.ts` で再 export するシンボルは、少ないほどいい。
+
+## Example: internal/*.ts
+
+```ts
+// mod.ts から型を import する。
+import type { Point } from "../mod.ts";
+export function distance(p1: Point, p2: Point) {
+  return Math.sqrt(
+    (p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2
+  );
+}
+```
+
+## Example: deno.jsonc
+
+```jsonc
+{
+  "name": "@i/foo",
+  "exports": {
+    ".": "./mod.ts"
+  },
+  "lint": {
+    "exclude": ["**/**/wip*.ts"],
+    "rules": {
+      "tags": ["recommended"],
+      "include": ["no-unused-vars"]
+    }
+  },
+  "tasks": {
+    "unit": "deno test -A --parallel --doc",
+    "cov": "rm -r ./coverage && deno test -A --parallel --coverage --doc && deno coverage ./coverage",
+    "unused": "deno run -R --allow-env npm:tsr mod.ts examples/*.ts 'test/.*\\.test\\.ts$'",
+    "health": "deno check && deno lint && deno task cov && deno task unused"
+  }
+}
+```
+
+`examples` `mod.ts` `test/*` は外に対してのユースケースとなるが、それ以外は
+
+### テストが落ちた時
+
+次の手順を踏む。
+
+機能追加の場合
+
+1. 機能追加の場合、まず `deno test -A modules/<name>`
+   で全体のテストが通過しているかを確認する
+2. 修正後、対象のスクリプト or モジュールをテストする
+
+修正の場合
+
+1. `deno test -A modules/<name>/**.test.ts` でモジュールのテストを実行する
+2. 落ちたモジュールのテストを確認し、実装を参照する。
+
+- テストは一つずつ実行する `deno test -A modules/<name>/foo.test.ts`
+
+3. 落ちた理由をステップバイステップで考える(闇雲に修正しない!)
+4. 実装を修正する。必要な場合、実行時の過程を確認するためのプリントデバッグを挿入する。
+5. モジュールのテスト実行結果を確認
+
+- 修正出来た場合、プリントデバッグを削除する
+- 集できない場合、3 に戻る。
+
+5. モジュール以外の全体テストを確認
+
+テストが落ちた場合、落ちたテストを修正するまで次のモジュールに進まない。
+
+
+モジュールモードではスクリプトモードと違って、ライブラリの参照に `jsr:` や
+`npm:` を推奨しない。モジュールを参照する場合、 `deno add jsr:@david/dax@0.42.0`
+のようにして、 `deno.json` に依存を追加する。
+
+```ts
+// OK
+import $ from "@david/dax";
+
+// NG
+import $ from "jsr:@david/dax@0.42.0";
+```
+
 
 ### 外部ライブラリの使用方法
 

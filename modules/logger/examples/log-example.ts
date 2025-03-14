@@ -1,7 +1,7 @@
 // ロガーライブラリの使用例
 
 import { createLogger } from "../logger.ts";
-import { LogEntry } from "../types.ts";
+import type { LogEntry } from "../types.ts";
 
 // 基本的な使い方
 console.log("\n=== 基本的な使い方 ===");

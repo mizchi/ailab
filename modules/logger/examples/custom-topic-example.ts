@@ -1,7 +1,7 @@
 // カスタムトピック機能の例
 // 実行方法: LOG=info deno run -A examples/custom-topic-example.ts
 
-import { createLogger, LogLevel } from "../mod.ts";
+import { createLogger, type LogLevel } from "../mod.ts";
 
 // 環境変数からログレベルを取得（デフォルトはerror）
 console.log(`現在のログレベル: ${Deno.env.get("LOG") ?? "error"}`);

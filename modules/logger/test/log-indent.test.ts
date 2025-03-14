@@ -1,7 +1,7 @@
 import { expect } from "@std/expect";
 import { test } from "@std/testing/bdd";
 import { createLogger, LogLevel } from "../logger.ts";
-import { LogEntry } from "../types.ts";
+import type { LogEntry } from "../types.ts";
 
 // テスト用のロガーオプション（すべてのログレベルを表示）
 const testLoggerOptions = {

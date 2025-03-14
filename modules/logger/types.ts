@@ -1,4 +1,4 @@
-import { LogLevel } from "./logger.ts";
+import type { LogLevel } from "./logger.ts";
 
 // ログエントリの型定義
 export interface LogEntry {
