@@ -1,6 +1,6 @@
 /**
  * @module @i/foo
- * This is a deno module example
+ * A module for calculating distances between points
  */
 
 /**
@@ -11,6 +11,17 @@ export type Point = {
   y: number;
 };
 
+/**
+ * Calculates the Euclidean distance between two points
+ */
 export { distance } from "./internal/distance.ts";
-export { add } from "./internal/add.ts";
-export { mul } from "./internal/mul.ts";
+
+/**
+ * Calculates the Manhattan distance between two points
+ */
+export { manhattanDistance } from "./internal/manhattanDistance.ts";
+
+/**
+ * Calculates the Chebyshev distance between two points
+ */
+export { chebyshevDistance } from "./internal/chebyshevDistance.ts";
