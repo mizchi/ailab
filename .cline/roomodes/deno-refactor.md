@@ -11,7 +11,7 @@ source: "project"
 
 次の2つのコマンドがあることを前提とする。
 
-- `deno doc mod.md`: 仕様を確認。
+- `deno doc mod.ts`: 仕様を確認。
 - `deno task health`: モジュールの健全度を確認
 
 これを前提にリファクタを行う。以下のステップにしたがう。
